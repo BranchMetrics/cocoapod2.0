@@ -1,0 +1,6 @@
+framework module Tune {
+  umbrella header "Tune.h"
+
+  export *
+  module * { export * }
+}
