@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = "Tune"
-  s.version      = '4.0.3'
+  s.version      = '4.0.4'
   s.summary      = "SDK for TUNE platform."
   s.description  = "The TUNE SDK for iOS provides Attribution, Analytics, Push, In-App Messaging, and Cross-promotion advertisement capabilities."
   s.homepage     = "https://developers.mobileapptracking.com/ios-sdk"
   s.license      = { :type => "Apache License, Version 2.0", :file => "LICENSE" }
   s.author       = { "TUNE, Inc." => "support@mobileapptracking.com" }
-  s.source       = { :git => "https://github.com/MobileAppTracking/cocoapod2.0.git", :tag => '4.0.3' }
+  s.source       = { :git => "https://github.com/MobileAppTracking/cocoapod2.0.git", :tag => '4.0.4' }
   s.platform     = :ios, '6.0'
   s.frameworks   = "AdSupport", "CoreTelephony", "iAd", "MobileCoreServices", "StoreKit", "SystemConfiguration", "UIKit", "QuartzCore", 'Security'
   s.library      = 'z'
