@@ -29,7 +29,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #endif
 
-#define TUNEVERSION @"4.0"
+#define TUNEVERSION @"4.0.4"
 
 
 #pragma mark - enumerated types
@@ -537,12 +537,6 @@ typedef NS_ENUM(NSInteger, TuneGender)
  @return Apple Advertising Identifier (IFA)
  */
 + (NSString*)appleAdvertisingIdentifier;
-
-/*!
- Get the MAT ID for this installation (mat_id).
- @return MAT ID
- */
-+ (NSString*)matId DEPRECATED_MSG_ATTRIBUTE("Please use +(NSString*)tuneId");
 
 /*!
  Get the TUNE ID for this installation (mat_id).
