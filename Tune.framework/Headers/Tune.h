@@ -29,7 +29,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #endif
 
-#define TUNEVERSION @"4.0.6"
+#define TUNEVERSION @"4.0.7"
 
 
 #pragma mark - enumerated types
