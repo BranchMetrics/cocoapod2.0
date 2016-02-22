@@ -29,7 +29,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #endif
 
-#define TUNEVERSION @"4.0.12"
+#define TUNEVERSION @"4.0.13"
 
 
 #pragma mark - enumerated types
@@ -119,16 +119,6 @@ typedef NS_ENUM(NSInteger, TuneErrorCode)
  @param enable defaults to NO.
  */
 + (void)setDebugMode:(BOOL)enable;
-
-/*!
- Set to YES to allow duplicate requests to be registered with the Tune server.
- 
- @warning This is only for testing. You must turn this off for release builds.
- 
- @param allow defaults to NO.
- */
-+ (void)setAllowDuplicateRequests:(BOOL)allow;
-
 
 #pragma mark - Behavior Flags
 /** @name Behavior Flags */
