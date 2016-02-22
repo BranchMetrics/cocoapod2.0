@@ -29,7 +29,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #endif
 
-#define TUNEVERSION @"4.0.10"
+#define TUNEVERSION @"4.0.13"
 
 
 #pragma mark - enumerated types
@@ -119,16 +119,6 @@ typedef NS_ENUM(NSInteger, TuneErrorCode)
  @param enable defaults to NO.
  */
 + (void)setDebugMode:(BOOL)enable;
-
-/*!
- Set to YES to allow duplicate requests to be registered with the Tune server.
- 
- @warning This is only for testing. You must turn this off for release builds.
- 
- @param allow defaults to NO.
- */
-+ (void)setAllowDuplicateRequests:(BOOL)allow;
-
 
 #pragma mark - Behavior Flags
 /** @name Behavior Flags */
@@ -515,16 +505,15 @@ typedef NS_ENUM(NSInteger, TuneGender)
 
 /** Clear out a specific custom value set for the current user.
  *
- * This value will be cleared from this user's personalization profile.  The variable will still be registered, so you can set updated values for them later.
+ * This value will be cleared from this user's personalization profile.  The variable will still be registered, so you can update it later.
+ *
+ * @param name The name of the variable to clear.
  */
-+ (void)clearCustomProfileVariable:(NSString *)key;
++ (void)clearCustomProfileVariable:(NSString *)name;
 
 /** Clear out all of the custom profile values set for the current user.
  *
- * All custom profile values will be cleared from this user's personalization profile.  All
- * @param value Value to use for the given variable.
- *
- * @param variableName Variable to which this value should be assigned.  The format must be 1 to 3 sets of numbers, delimited by periods, where each set of numbers must either be 0 or a number not starting in 0.  It also may include a dash afterwhich all characters are ignored.
+ * All custom profile values will be cleared from this user's personalization profile.
  */
 + (void)clearAllCustomProfileVariables;
 
@@ -649,6 +638,8 @@ typedef NS_ENUM(NSInteger, TuneGender)
  * or you have set the name for 'AppDelegateClassName' in 'TuneConfiguration.plist'.
  * 
  * If you are not using TUNE's auto-instrumentation setup, you may instead invoke the following methods manually from the UIApplicationDelegate methods.
+ *
+ * WARNING: If you enable the swizzle, do not call these methods.
  */
 
 + (void)application:(UIApplication *)application tuneDidRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
@@ -793,6 +784,8 @@ typedef NS_ENUM(NSInteger, TuneGender)
  This typically occurs during OAUTH or when an app exits and is returned
  to via a URL. The data will be sent to the HasOffers server when the next
  measureXXX method is called so that a Re-Engagement can be recorded.
+ 
+ WARNING: You don't need to call this method if you have the swizzle enabled.
  @param urlString the url string used to open your app.
  @param sourceApplication the source used to open your app. For example, mobile safari.
  */
