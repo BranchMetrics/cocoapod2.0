@@ -29,7 +29,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #endif
 
-#define TUNEVERSION @"4.0.14"
+#define TUNEVERSION @"4.1.0"
 
 
 #pragma mark - enumerated types
@@ -649,6 +649,8 @@ typedef NS_ENUM(NSInteger, TuneGender)
 + (void)application:(UIApplication *)application tuneDidReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 
 + (void)application:(UIApplication *)application tuneHandleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler;
+
++ (void)application:(UIApplication *)application tuneHandleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void(^)())completionHandler;
 
 #pragma mark - Experiment API
 
