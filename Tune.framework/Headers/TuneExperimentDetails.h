@@ -62,4 +62,9 @@ extern NSString *const DetailDictionaryTypeInApp;
  */
 @property (nonatomic, copy) NSString *currentVariantLetter;
 
+/**
+ * Return the experiment details as a dictionary
+ */
+- (NSDictionary *)toDictionary;
+
 @end

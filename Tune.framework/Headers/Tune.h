@@ -10,18 +10,17 @@
 #import <UIKit/UIKit.h>
 #import <AvailabilityMacros.h>
 
+#import "TuneConstants.h"
 #import "TuneEvent.h"
 #import "TuneEventItem.h"
 #import "TuneLocation.h"
 #import "TunePreloadData.h"
 
+#if TARGET_OS_IOS
+
 #import "TuneInAppMessageExperimentDetails.h"
 #import "TunePowerHookExperimentDetails.h"
 
-#if TARGET_OS_IOS
-#import "TuneAdMetadata.h"
-#import "TuneBanner.h"
-#import "TuneInterstitial.h"
 #endif
 
 #ifdef TUNE_USE_LOCATION
@@ -29,22 +28,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #endif
 
-#define TUNEVERSION @"4.1.0"
-
-
-#pragma mark - enumerated types
-
-/** @name Error codes */
-
-typedef NS_ENUM(NSInteger, TuneErrorCode)
-{
-    TuneNoAdvertiserIDProvided          = 1101,
-    TuneNoConversionKeyProvided         = 1102,
-    TuneInvalidConversionKey            = 1103,
-    TuneServerErrorResponse             = 1111,
-    TuneInvalidEventClose               = 1131,
-    TuneMeasurementWithoutInitializing  = 1132
-};
+#define TUNEVERSION @"4.2.0"
 
 
 @protocol TuneDelegate;
@@ -79,6 +63,7 @@ typedef NS_ENUM(NSInteger, TuneErrorCode)
  */
 + (void)initializeWithTuneAdvertiserId:(NSString *)aid tuneConversionKey:(NSString *)key tunePackageName:(NSString *)name wearable:(BOOL)wearable;
 
+#if TARGET_OS_IOS
 /** @name Initializing Tune With Advertiser Information and Additional Configuration */
 /*!
  Starts Mobile App Tracker with MAT Advertiser ID, MAT Conversion Key, and additional configuration. All values are required.
@@ -89,6 +74,7 @@ typedef NS_ENUM(NSInteger, TuneErrorCode)
  @param configuration key-value pairs defining additional configuration to pass to TUNE
  */
 + (void)initializeWithTuneAdvertiserId:(NSString *)aid tuneConversionKey:(NSString *)key tunePackageName:(NSString *)name wearable:(BOOL)wearable configuration:(NSDictionary *)configuration;
+#endif
 
 #pragma mark - Delegate
 
@@ -123,6 +109,7 @@ typedef NS_ENUM(NSInteger, TuneErrorCode)
 #pragma mark - Behavior Flags
 /** @name Behavior Flags */
 
+#if !TARGET_OS_WATCH
 /*!
  Check for a deferred deeplink entry point upon app installation.
  On completion, this method does not auto-open the deferred deeplink,
@@ -135,7 +122,6 @@ typedef NS_ENUM(NSInteger, TuneErrorCode)
  */
 + (void)checkForDeferredDeeplink:(id<TuneDelegate>)delegate;
 
-#if !TARGET_OS_WATCH
 /*!
  Enable automatic measurement of app store in-app-purchase events. When enabled, your code should not explicitly measure events for successful purchases related to StoreKit to avoid event duplication. If your app provides subscription IAP items, please make sure you enter the iTunes Shared Secret on the TUNE dashboard, otherwise Apple receipt validation will fail and the events will be marked as rejected.
  @param automate Automate IAP purchase event measurement. Defaults to NO.
@@ -186,11 +172,13 @@ typedef NS_ENUM(NSInteger, TuneErrorCode)
  */
 + (void)setCurrencyCode:(NSString *)currencyCode;
 
+#if !TARGET_OS_WATCH
 /*!
  Sets the jailbroken device flag.
  @param jailbroken The jailbroken device flag.
  */
 + (void)setJailbroken:(BOOL)jailbroken;
+#endif
 
 /*!
  Sets the package name (bundle identifier).
@@ -209,15 +197,13 @@ typedef NS_ENUM(NSInteger, TuneErrorCode)
 + (void)setShouldAutoCollectAppleAdvertisingIdentifier:(BOOL)autoCollect;
 #endif
 
-#if TARGET_OS_IOS
 /*!
  Specifies if the sdk should auto collect device location if location access has already been permitted by the end user.
  YES/NO
  @param autoCollect YES will auto collect device location, defaults to YES.
  */
 + (void)setShouldAutoCollectDeviceLocation:(BOOL)autoCollect;
-#endif
-
+#if !TARGET_OS_WATCH
 /*!
  Specifies if the sdk should auto detect if the iOS device is jailbroken.
  YES/NO
@@ -225,7 +211,6 @@ typedef NS_ENUM(NSInteger, TuneErrorCode)
  */
 + (void)setShouldAutoDetectJailbroken:(BOOL)autoDetect;
 
-#if !TARGET_OS_WATCH
 /*!
  Specifies if the sdk should pull the Apple Vendor Identifier from the device.
  YES/NO
@@ -289,18 +274,6 @@ typedef NS_ENUM(NSInteger, TuneErrorCode)
  */
 + (void)setAge:(NSInteger)userAge;
 
-#if !TARGET_OS_IOS
-
-/** @name Gender type constants */
-typedef NS_ENUM(NSInteger, TuneGender)
-{
-    TuneGenderMale       = 0,                // Gender type MALE. Equals 0.
-    TuneGenderFemale     = 1,                // Gender type FEMALE. Equals 1.
-    TuneGenderUnknown    = 2
-};
-
-#endif
-
 /*!
  Sets the user's gender.
  @param userGender user's gender, possible values TuneGenderMale, TuneGenderFemale, TuneGenderUnknown
@@ -332,6 +305,8 @@ typedef NS_ENUM(NSInteger, TuneGender)
  @param preloadData Preload app attribution data
  */
 + (void)setPreloadData:(TunePreloadData *)preloadData;
+
+#if TARGET_OS_IOS
 
 #pragma mark - Register/Set Custom Profile Variables
 
@@ -517,6 +492,8 @@ typedef NS_ENUM(NSInteger, TuneGender)
  */
 + (void)clearAllCustomProfileVariables;
 
+#endif
+
 #pragma mark - Data Getters
 
 /** @name Getter Methods */
@@ -544,6 +521,8 @@ typedef NS_ENUM(NSInteger, TuneGender)
  @return YES if the user has produced revenue, NO if not
  */
 + (BOOL)isPayingUser;
+
+#if TARGET_OS_IOS
 
 /*!
  Gets the current device token for push notifications.
@@ -652,6 +631,12 @@ typedef NS_ENUM(NSInteger, TuneGender)
 
 + (void)application:(UIApplication *)application tuneHandleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void(^)())completionHandler;
 
+#pragma mark - Spotlight API
+
+#if !TARGET_OS_WATCH
++ (BOOL)application:(UIApplication *)application tuneContinueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray *restorableObjects))restorationHandler;
+#endif
+
 #pragma mark - Experiment API
 
 /**
@@ -704,6 +689,7 @@ typedef NS_ENUM(NSInteger, TuneGender)
  */
 + (void)onFirstPlaylistDownloaded:(void (^)())block withTimeout:(NSTimeInterval)timeout;
 
+#endif
 
 #pragma mark - Measuring Sessions
 
