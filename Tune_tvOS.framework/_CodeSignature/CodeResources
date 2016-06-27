@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Tune.h</key>
 		<data>
-		k3U28nkFP9aVU4tkiyNiRBw1cRA=
+		VaRhyDDqvYNE+CIMiwWd27G1lUs=
 		</data>
 		<key>Headers/TuneConstants.h</key>
 		<data>
@@ -28,6 +28,10 @@
 		<data>
 		0rsfId/skVLSg8shym9GeZKImN4=
 		</data>
+		<key>Headers/TunePushInfo.h</key>
+		<data>
+		NnU0YATfzFopc0lCdmRn3CihqCs=
+		</data>
 		<key>Headers/Tune_tvOS.h</key>
 		<data>
 		UOOrx9k436N0elDuUlxP0srN47I=
@@ -47,11 +51,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			k3U28nkFP9aVU4tkiyNiRBw1cRA=
+			VaRhyDDqvYNE+CIMiwWd27G1lUs=
 			</data>
 			<key>hash2</key>
 			<data>
-			JQwiJUhKuJyv5pVFdP+Z4yR0l5pbFcBUsBfrZ+yIppw=
+			6ajLN4qullUijXVmCOYQLGpapfNAWISVkHrlcGE9YBM=
 			</data>
 		</dict>
 		<key>Headers/TuneConstants.h</key>
@@ -107,6 +111,17 @@
 			<key>hash2</key>
 			<data>
 			p3ZHcA94jAWmEZ9LwO9xeKynqKuXpHF7NjnHOQ1bJZM=
+			</data>
+		</dict>
+		<key>Headers/TunePushInfo.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NnU0YATfzFopc0lCdmRn3CihqCs=
+			</data>
+			<key>hash2</key>
+			<data>
+			YcBp5VGuUZbPeSRJFMcPyLieDwEWnAxL0lMqqzgAydw=
 			</data>
 		</dict>
 		<key>Headers/Tune_tvOS.h</key>
