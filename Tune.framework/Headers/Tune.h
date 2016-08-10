@@ -11,7 +11,6 @@
 #import <AvailabilityMacros.h>
 
 #import "TuneConstants.h"
-#import "TuneDebugUtilities.h"
 #import "TuneEvent.h"
 #import "TuneEventItem.h"
 #import "TuneLocation.h"
@@ -20,6 +19,7 @@
 
 #if TARGET_OS_IOS
 
+#import "TuneDebugUtilities.h"
 #import "TuneInAppMessageExperimentDetails.h"
 #import "TunePowerHookExperimentDetails.h"
 
