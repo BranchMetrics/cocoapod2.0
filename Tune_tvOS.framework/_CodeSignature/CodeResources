@@ -6,11 +6,11 @@
 	<dict>
 		<key>Headers/Tune.h</key>
 		<data>
-		aipyndyxyd1PP1n7pUTRJmELs1I=
+		585EVScQYjduDiiOi1b2oVwFfkc=
 		</data>
 		<key>Headers/TuneConstants.h</key>
 		<data>
-		5ZqmbUdqiUrOCIhk2Ejo6dCzFEk=
+		PbAsHUaYkz4oSDrGtaqe2XEzqjs=
 		</data>
 		<key>Headers/TuneEvent.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		R+m2I3rdz9XqOSt2Lqk2Vq3MceU=
+		NxJSoVAioAYEWOh6ucgMApU9Axc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -51,22 +51,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aipyndyxyd1PP1n7pUTRJmELs1I=
+			585EVScQYjduDiiOi1b2oVwFfkc=
 			</data>
 			<key>hash2</key>
 			<data>
-			K0OWA7NBx+Nbyl4fRUlX/WDtN3AO0j668n+Zb02xsyA=
+			+oE5+eFt2TeoVWd1tmjyMqpbncgqKUA3bfNMpRxa7Qk=
 			</data>
 		</dict>
 		<key>Headers/TuneConstants.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5ZqmbUdqiUrOCIhk2Ejo6dCzFEk=
+			PbAsHUaYkz4oSDrGtaqe2XEzqjs=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZfNyKneKb9lbQeFpkvjoFhld4gKCI4GL+mc6yhPJLPc=
+			rm7RrkRyF4xJf04pVa2IMFJ+/UDd0GJhL5HDZzKusHE=
 			</data>
 		</dict>
 		<key>Headers/TuneEvent.h</key>
