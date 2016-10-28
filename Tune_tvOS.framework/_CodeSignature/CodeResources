@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Tune.h</key>
 		<data>
-		CIlxRJ9+cznHZk5JVgfEa7CwjXY=
+		T/WFJ2ZBV3zXS2r45Hkr91Gok14=
 		</data>
 		<key>Headers/TuneConstants.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0r7/GiKXJgSAOrqCqQTymx1F7/o=
+		qDV/LVEI5636DUU5Ckz49F8qG98=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -51,11 +51,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CIlxRJ9+cznHZk5JVgfEa7CwjXY=
+			T/WFJ2ZBV3zXS2r45Hkr91Gok14=
 			</data>
 			<key>hash2</key>
 			<data>
-			PSShsieFs/QLZs4UjWpmdFpNczZjxPkxu1KQzP7TDP8=
+			TNOQwDVfL4hYRc/HqqOcNK0vhH1Zcz4yzGYcmxwCudw=
 			</data>
 		</dict>
 		<key>Headers/TuneConstants.h</key>
@@ -165,6 +165,11 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -209,6 +214,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
