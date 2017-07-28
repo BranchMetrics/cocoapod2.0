@@ -31,7 +31,12 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #endif
 
-#define TUNEVERSION @"4.12.5"
+
+#if IDE_XCODE_8_OR_HIGHER
+#import <UserNotifications/UserNotifications.h>
+#endif
+
+#define TUNEVERSION @"4.13.0"
 
 
 @protocol TuneDelegate;
@@ -743,6 +748,12 @@
 
 + (void)application:(UIApplication *)application tuneHandleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void(^)())completionHandler;
 
++ (void)application:(UIApplication *)application tuneDidReceiveLocalNotification:(UILocalNotification *)notification;
+
+#if IDE_XCODE_8_OR_HIGHER
++ (void)userNotificationCenter:(UNUserNotificationCenter *)center tuneDidReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler;
+#endif
+
 #pragma mark - Spotlight API
 
 + (BOOL)application:(UIApplication *)application tuneContinueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray *restorableObjects))restorationHandler DEPRECATED_MSG_ATTRIBUTE("Please use handleContinueUserActivity:restorationHandler: instead.");
@@ -908,6 +919,43 @@
                          offerId:(NSString *)targetAdvertiserOfferId
                      publisherId:(NSString *)targetAdvertiserPublisherId
                         redirect:(BOOL)shouldRedirect;
+
+#if TARGET_OS_IOS
+#pragma mark - Smartwhere Integration
+
+/** @name SmartWhere Integration */
+
+/**
+ SmartWhere Integration Opt-In
+ Integrates Tune and SmartWhere with default configuration options.
+ 
+ If SmartWhere.framework is not available a NSException is raised.
+ */
++ (void)enableSmartWhereIntegration;
+
+
+typedef enum {
+    /** Tune SDK will initialize SmartWhere with Tune account information. */
+    TuneSmartWhereInitializeWithTuneAccount = 1,
+    
+    /** Tune SDK will share event data with SmartWhere. */
+    TuneSmartWhereShareEventData = 2,
+    
+    /** Tune SDK will shutdown SmartWhere.  Cannot be used with other options. */
+    TuneSmartWhereDisableSmartWhere = 0
+    
+} TuneSmartWhereConfigurationOptions;
+
+/**
+ SmartWhere Integration Configuration
+
+ If SmartWhere.framework is not available a NSException is raised.
+ 
+ @param mask bitmask with SmartWhere configuration options
+ */
++ (void)configureSmartWhereIntegrationWithOptions:(NSInteger)mask;
+
+#endif
 
 
 #ifdef TUNE_USE_LOCATION
