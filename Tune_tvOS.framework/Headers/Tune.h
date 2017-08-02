@@ -36,7 +36,7 @@
 #import <UserNotifications/UserNotifications.h>
 #endif
 
-#define TUNEVERSION @"4.13.0"
+#define TUNEVERSION @"4.13.1"
 
 
 @protocol TuneDelegate;
@@ -927,33 +927,31 @@
 
 /**
  SmartWhere Integration Opt-In
- Integrates Tune and SmartWhere with default configuration options.
  
  If SmartWhere.framework is not available a NSException is raised.
  */
-+ (void)enableSmartWhereIntegration;
++ (void)enableSmartwhereIntegration;
 
+/**
+ Turn Off SmartWhere Integration
+ */
++ (void)disableSmartwhereIntegration;
 
 typedef enum {
-    /** Tune SDK will initialize SmartWhere with Tune account information. */
-    TuneSmartWhereInitializeWithTuneAccount = 1,
+    /** Tune SDK will share event data with SmartWhere. Disabled by default. */
+    TuneSmartwhereShareEventData = 1,
     
-    /** Tune SDK will share event data with SmartWhere. */
-    TuneSmartWhereShareEventData = 2,
+    /** Tune SDK will reset configuration options. Cannot be used with other options. */
+    TuneSmartwhereResetConfiguration = 0
     
-    /** Tune SDK will shutdown SmartWhere.  Cannot be used with other options. */
-    TuneSmartWhereDisableSmartWhere = 0
-    
-} TuneSmartWhereConfigurationOptions;
+} TuneSmartwhereConfigurationOptions;
 
 /**
  SmartWhere Integration Configuration
-
- If SmartWhere.framework is not available a NSException is raised.
  
  @param mask bitmask with SmartWhere configuration options
  */
-+ (void)configureSmartWhereIntegrationWithOptions:(NSInteger)mask;
++ (void)configureSmartwhereIntegrationWithOptions:(NSInteger)mask;
 
 #endif
 
