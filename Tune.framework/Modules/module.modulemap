@@ -5,6 +5,7 @@ framework module Tune {
 
   module SmartWhere {
     header "SmartWhere.h"
+    header "SWTuneBridge.h"
   }
 
   export *
