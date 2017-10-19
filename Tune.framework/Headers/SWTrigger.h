@@ -8,6 +8,7 @@
 typedef enum SWTriggerType : NSInteger {
     swNfcTap = 0,
     swQRScan = 1,
+    swNfcTapCancel = 2,
     swBleEnter = 10,
     swBleHover = 11,
     swBleDwell = 12,

@@ -68,26 +68,45 @@ typedef void (^SWValidateScanCallBack)(SWTag* _Nullable Tag, NSError* _Nullable 
 // while the app is in the foreground and wanting to action on it.
 - (nullable NSDictionary*)fireLocalNotificationAction:(SWNotification*)notification;
 
+// call this method to set the locale different to the default system locale
++ (void)setLocale:(NSString*) locale;
++ (NSString*)getLocale;
+
 // manipulate user values used for condition processing
-- (void)clearUserAttributes;
-- (NSDictionary*) getUserAttributes;
-- (void)setUserAttributes:(NSDictionary*) attributes;
-- (void)setUserInteger:(NSInteger)value forKey:(NSString*)key;
-- (void)setUserString:(NSString*)value forKey:(NSString*)key;
-- (void)removeUserValueForKey:(NSString*)key;
-- (nullable id)getUserValueForKey:(NSString*)key;
++ (void)clearUserAttributes;
++ (NSDictionary*) getUserAttributes;
++ (void)setUserAttributes:(NSDictionary*) attributes;
++ (void)setUserInteger:(NSInteger)value forKey:(NSString*)key;
++ (void)setUserString:(NSString*)value forKey:(NSString*)key;
++ (void)removeUserValueForKey:(NSString*)key;
++ (nullable id)getUserValueForKey:(NSString*)key;
+
+- (void)clearUserAttributes __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
+- (NSDictionary*) getUserAttributes __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
+- (void)setUserAttributes:(NSDictionary*) attributes __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
+- (void)setUserInteger:(NSInteger)value forKey:(NSString*)key __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
+- (void)setUserString:(NSString*)value forKey:(NSString*)key __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
+- (void)removeUserValueForKey:(NSString*)key __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
+- (nullable id)getUserValueForKey:(NSString*)key __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
 
 // manipulate user values sent with the tracking
-- (void)clearUserTrackingAttributes;
-- (void)setUserTrackingAttributes:(NSDictionary*) attributes;
-- (NSDictionary*) getUserTrackingAttributes;
-- (void)setUserTrackingString:(NSString*)value forKey:(NSString*)key;
-- (void)removeUserTrackingValueForKey:(NSString*)key;
-- (nullable id)getUserTrackingValueForKey:(NSString*)key;
++ (void)clearUserTrackingAttributes;
++ (void)setUserTrackingAttributes:(NSDictionary*) attributes;
++ (NSDictionary*) getUserTrackingAttributes;
++ (void)setUserTrackingString:(NSString*)value forKey:(NSString*)key;
++ (void)removeUserTrackingValueForKey:(NSString*)key;
++ (nullable id)getUserTrackingValueForKey:(NSString*)key;
+
+- (void)clearUserTrackingAttributes __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
+- (void)setUserTrackingAttributes:(NSDictionary*) attributes __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
+- (NSDictionary*) getUserTrackingAttributes __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
+- (void)setUserTrackingString:(NSString*)value forKey:(NSString*)key __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
+- (void)removeUserTrackingValueForKey:(NSString*)key __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
+- (nullable id)getUserTrackingValueForKey:(NSString*)key __attribute__((deprecated("Instance method has been deprecated. Use the class method.")));
 
 // use to extend beacon ranging
-- (void)applicationDidEnterBackground;
-- (void)applicationDidBecomeActive;
+- (void)applicationDidEnterBackground __attribute__((deprecated("No longer needed.  Handled internally.")));
+- (void)applicationDidBecomeActive __attribute__((deprecated("No longer needed.  Handled internally.")));
 
 @property (nonatomic, weak, nullable) NSObject<SmartWhereDelegate>* delegate;
 
