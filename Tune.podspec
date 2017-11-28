@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = "Tune"
-  s.version         = "4.14.0"
+  s.version         = "4.14.1"
   s.summary         = "iOS/tvOS SDK for TUNE platform."
   s.description     = "The TUNE SDK for iOS provides Attribution, Analytics, Push, and In-App Messaging capabilities. The TUNE SDK for tvOS provides Attribution and Analytics capabilities."
   s.homepage        = "https://developers.tune.com/sdk/ios-quick-start/"
