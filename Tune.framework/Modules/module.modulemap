@@ -2,12 +2,6 @@ framework module Tune {
   umbrella header "Tune.h"
   exclude header "UIViewController+NameTag.h"
   
-
-  module SmartWhere {
-    header "SmartWhere.h"
-    header "SWTuneBridge.h"
-  }
-
   export *
   module * { export * }
 }
