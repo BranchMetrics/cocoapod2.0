@@ -1,1 +1,1 @@
-# cocoapod2.0
+This repo is deprecated
